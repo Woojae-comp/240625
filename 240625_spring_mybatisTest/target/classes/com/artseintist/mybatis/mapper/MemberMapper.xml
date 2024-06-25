@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+
+<mapper namespace="com.artseintist.mybatis.dao.MemberDao">
+	
+	<insert id="joinMemberDao">
+		INSERT INTO members(mid, mpw, mname, memail) VALUES (#{param1},#{param2},#{param3},#{param4})
+	</insert>	
+	
+	
+	<select id="loginDao" resultType="int">
+		SELECT count(*) FROM members WHERE mid=#{param1} AND mpw=#{param2}
+	</select>
+	
+	
+	<select id="searchDao" resultType="com.artseintist.mybatis.dto.MemberDto">
+		SELECT * FROM members WHERE mid=#{param1}
+	</select>
+		
+	<select id="memberlistDao" resultType="com.artseintist.mybatis.dto.MemberDto">
+		SELECT * FROM members
+	</select>
+	
+	<select id="totalMemberDao" resultType="int">
+		SELECT count(*) FROM members
+	</select>
+	
+</mapper>    
